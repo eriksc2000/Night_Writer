@@ -10,4 +10,6 @@ writer = File.open(ARGV[1], "w")
 
 writer.write(capitalized_text)
 
+puts "Created #{ARGV[1]} containing 256 characters."
 writer.close
+
