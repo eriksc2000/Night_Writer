@@ -4,12 +4,13 @@ incoming_text = handle.read
 
 handle.close
 
-capitalized_text = incoming_text.upcase
+sample_message = incoming_text.length
+saved_message = incoming_text
 
-writer = File.open(ARGV[1], "w")
+writer = File.open(ARGV[1], 'w')
 
-writer.write(capitalized_text)
+writer.write(saved_message)
 
-puts "Created '#{ARGV[1]}' containing 256 characters."
+puts "Created '#{ARGV[1]}' containing #{sample_message} characters"
+ 
 writer.close
-
