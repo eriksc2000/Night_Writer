@@ -31,4 +31,16 @@ class BrailleMap
     }
   end
 
+  def translate(message)
+      characters = prepare(message)
+      braille_translation = characters.map do |character|
+        @dictionary[character]
+      end
+      braille_translation.join
+    end
+
+    def prepare(message)
+      message.chars
+    end 
+
 end
