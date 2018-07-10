@@ -1,5 +1,6 @@
-module BrailleMap
-  def self.dictionary = {
+class BrailleMap
+  def initialize  
+    @dictionary = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
       "c" => ["00", "..", ".."],
