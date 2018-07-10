@@ -1,7 +1,5 @@
-class BrailleMap
-
-  def initialize
-    @dictionary = {
+module BrailleMap
+  def self.dictionary = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
       "c" => ["00", "..", ".."],
@@ -32,15 +30,10 @@ class BrailleMap
   end
 
   def translate(message)
-      characters = prepare(message)
-      braille_translation = characters.map do |character|
-        @dictionary[character]
-      end
-      braille_translation.join
-    end
-
-    def prepare(message)
-      message.chars
-    end 
+     braille_translation = message.chars.map do |character|
+       @dictionary[character]
+     end
+     braille_translation.join
+   end
 
 end
