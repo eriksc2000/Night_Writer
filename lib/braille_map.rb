@@ -1,5 +1,8 @@
-class BrailleMap
-  def initialize  
+require 'pry'
+class BrailleMap 
+  
+
+  def initialize
     @dictionary = {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
@@ -26,15 +29,28 @@ class BrailleMap
       "w" => [".0", "00", ".0"],
       "x" => ["00", "..", "00"],
       "y" => ["00", ".0", "00"],
-      "z" => ["0.", ".0", "00"]
+      "z" => ["0.", ".0", "00"],
+      " " => ["..", "..", ".."]
     }
-  end
-
+    @long_string = ""
+  end 
+  
   def translate(message)
-     braille_translation = message.chars.map do |character|
-       @dictionary[character]
-     end
-     braille_translation.join
-   end
-
+    braille_translation = message.chars.map do |character|
+      @dictionary[character]
+    end 
+    @long_string = braille_translation.join
+  end 
+  
+  def format
+    intermed = @long_string.scan(/(..)(..)(..)/)
+    output = intermed.reduce({row_1: "", row_2: "", row_3: ""}) do |result, braille|
+      result[:row_1] << braille[0]
+      result[:row_2] << braille[1]
+      result[:row_3] << braille[2]
+      result
+    end
+    output.values.join("\n")
+  end 
+    
 end
