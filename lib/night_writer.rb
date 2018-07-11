@@ -1,4 +1,4 @@
-require './braille_map'
+require './lib/braille_map'
 
 handle = File.open(ARGV[0], "r")
 incoming_text = handle.read
