@@ -43,7 +43,7 @@ class BrailleMap
   end 
   
   def format
-    intermed = @long_string.scan(/(..)(..)(..)/)
+    intermed = @long_string.scan(/(..)(..)(..)/) 
     output = intermed.reduce({row_1: "", row_2: "", row_3: ""}) do |result, braille|
       result[:row_1] << braille[0]
       result[:row_2] << braille[1]
